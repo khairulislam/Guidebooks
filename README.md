@@ -1,8 +1,21 @@
 # Github tutorials
-Github's own tutorial [link](https://guides.github.com/)
+create a new repository on the command line
+```
+echo "# ASHRAE---Great-Energy-Predictor-III" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/khairulislam/ASHRAE---Great-Energy-Predictor-III.git
+git push -u origin master
+```
 
-[Resources](https://try.github.io/) to learn git 
+or push an existing repository from the command line
+```
+git remote add origin https://github.com/khairulislam/ASHRAE---Great-Energy-Predictor-III.git
+git push -u origin master
+```
 
-[Tutorials](https://www.tutorialspoint.com/git/index.htm) by tutorialspoint.
-
-Some writing syntax for readme file are [here](https://kramdown.gettalong.org/syntax.html)
+* Github's own tutorial [link](https://guides.github.com/)
+* [Resources](https://try.github.io/) to learn git 
+* [Tutorials](https://www.tutorialspoint.com/git/index.htm) by tutorialspoint.
+* Some writing syntax for readme file are [here](https://kramdown.gettalong.org/syntax.html)
