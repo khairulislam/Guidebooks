@@ -1,17 +1,17 @@
 # Github tutorials
 create a new repository on the command line
 ```
-echo "# ASHRAE---Great-Energy-Predictor-III" >> README.md
+echo "# Introduction" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin https://github.com/khairulislam/ASHRAE---Great-Energy-Predictor-III.git
+git remote add origin https://github.com/username/repository-name.git
 git push -u origin master
 ```
 
 or push an existing repository from the command line
 ```
-git remote add origin https://github.com/khairulislam/ASHRAE---Great-Energy-Predictor-III.git
+git remote add origin https://github.com/username/repository-name.git
 git push -u origin master
 ```
 
