@@ -1,0 +1,15 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: markdown
+- file: notebooks
+# - file: markdown-notebooks
+- file: pages/anaconda
+- file: pages/github
+- file: pages/gpu_on_remote
+- file: pages/jupyterbook
+- file: pages/setting_keys
+- file: pages/slurm
