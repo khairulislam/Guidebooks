@@ -140,8 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -164,7 +164,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="jupyterbook.html">Jupyter Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setting_keys.html">Public private key</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">SLURM</a></li>
-
 </ul>
 
     </div>
@@ -358,7 +357,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SLURM</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-a-job">Submitting a Job</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-job-status">Displaying Job Status</a></li>
@@ -374,10 +372,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#others">Others</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Others</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -541,22 +535,7 @@ $ scontrol requeue &lt;jobid&gt;
 <span class="n">sbatch</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">expected</span> <span class="n">UNIX</span> <span class="n">line</span> <span class="n">breaks</span> <span class="p">(</span>\<span class="n">n</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>Try interactive jobs for debugging
-<code class="docutils literal notranslate"><span class="pre">ijob</span> <span class="pre">--job-name=mydemojob</span> <span class="pre">--partition=gpu</span> <span class="pre">--mem=32GB</span> <span class="pre">--time=20:00</span> <span class="pre">--account=ds6011-sp22-002</span> <span class="pre">--gres=gpu:v100:1</span></code></p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>Others<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># see CPU cores</span>
-lscpu
-
-<span class="c1"># see RAM memory info</span>
-cat /proc/meminfo
-
-<span class="c1"># see GPU memory</span>
-lspci <span class="p">|</span> grep <span class="s1">&#39; VGA &#39;</span> <span class="p">|</span> cut -d<span class="s2">&quot; &quot;</span> -f <span class="m">1</span> <span class="p">|</span> xargs -i lspci -v -s <span class="o">{}</span>
-</pre></div>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -617,7 +596,6 @@ lspci <span class="p">|</span> grep <span class="s1">&#39; VGA &#39;</span> <spa
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SLURM</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-a-job">Submitting a Job</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-job-status">Displaying Job Status</a></li>
@@ -633,10 +611,6 @@ lspci <span class="p">|</span> grep <span class="s1">&#39; VGA &#39;</span> <spa
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#others">Others</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Others</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

@@ -140,18 +140,3 @@ In case of the following error try `dos2unix script_name`.
 sbatch: error: Batch script contains DOS line breaks (\r\n)
 sbatch: error: instead of expected UNIX line breaks (\n).
 ```
-
-Try interactive jobs for debugging 
-`ijob --job-name=mydemojob --partition=gpu --mem=32GB --time=20:00 --account=ds6011-sp22-002 --gres=gpu:v100:1`
-
-# Others
-```bash
-# see CPU cores
-lscpu
-
-# see RAM memory info
-cat /proc/meminfo
-
-# see GPU memory
-lspci | grep ' VGA ' | cut -d" " -f 1 | xargs -i lspci -v -s {}
-```
