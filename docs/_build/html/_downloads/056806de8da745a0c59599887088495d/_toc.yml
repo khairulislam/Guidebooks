@@ -9,7 +9,7 @@ chapters:
 # - file: markdown-notebooks
 - file: pages/anaconda
 - file: pages/github
-- file: pages/gpu_on_remote
+- file: pages/gpu_setup
 - file: pages/jupyterbook
 - file: pages/setting_keys
 - file: pages/slurm
