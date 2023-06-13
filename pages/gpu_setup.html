@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Anaconda &#8212; My guide book</title>
+    <title>GPU Setup &#8212; My guide book</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/anaconda';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/gpu_setup';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Github" href="github.html" />
-    <link rel="prev" title="Content with notebooks" href="../notebooks.html" />
+    <link rel="next" title="Jupyter Book" href="jupyterbook.html" />
+    <link rel="prev" title="Github" href="github.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,9 +159,9 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda.html">Anaconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gpu_setup.html">GPU Setup</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">GPU Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterbook.html">Jupyter Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setting_keys.html">Public private key</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slurm.html">SLURM</a></li>
@@ -236,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/khairulislam/Guidebooks/issues/new?title=Issue%20on%20page%20%2Fpages/anaconda.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/khairulislam/Guidebooks/issues/new?title=Issue%20on%20page%20%2Fpages/gpu_setup.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/pages/anaconda.md" target="_blank"
+      <li><a href="../_sources/pages/gpu_setup.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -348,7 +348,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Anaconda</h1>
+    <h1>GPU Setup</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -358,10 +358,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation guide</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-channels">Conda channels</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environment">Virtual environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a></li>
 </ul>
             </nav>
         </div>
@@ -373,88 +371,70 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="anaconda">
-<h1><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">Anaconda</a><a class="headerlink" href="#anaconda" title="Permalink to this heading">#</a></h1>
-<section id="installation-guide">
-<h2><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/linux.html">Installation guide</a><a class="headerlink" href="#installation-guide" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="gpu-setup">
+<h1>GPU Setup<a class="headerlink" href="#gpu-setup" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Download the installer. Find the latest version for your os and get it. For my cases it was <code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</span></code></p></li>
-<li><p>Install using <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">Anaconda-latest-Linux-x86_64.sh</span></code></p></li>
-<li><p>To update existing version <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">conda</span></code></p></li>
+<li><p><a class="reference external" href="https://sh-tsang.medium.com/tutorial-cuda-cudnn-anaconda-jupyter-pytorch-installation-in-windows-10-96b2a2f0ac57">Tutorial: CUDA, cuDNN, Anaconda, Jupyter, PyTorch Installation in Windows 10</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/install/pip#windows-wsl2">Install TensorFlow with pip</a></p></li>
+<li><p><a class="reference external" href="https://www.reddit.com/r/tensorflow/comments/jsalkw/rtx_3090_and_tensorflow_for_windows_10_step_by/">https://www.reddit.com/r/tensorflow/comments/jsalkw/rtx_3090_and_tensorflow_for_windows_10_step_by/</a></p></li>
+<li><p><a class="reference external" href="https://neptune.ai/blog/installing-tensorflow-2-gpu-guide">Installing TensorFlow 2 GPU [Step-by-Step Guide]</a></p></li>
 </ul>
-</section>
-<section id="getting-started">
-<h2><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Check if you have conda <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">--version</span></code></p></li>
-<li><p>By default conda creates an environment called <code class="docutils literal notranslate"><span class="pre">base</span></code> with latest versions.</p>
-<ul>
-<li><p>Activate it with <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/u/mi3se/anaconda3/bin/activate</span></code> then <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">base</span></code>. Sometimes you might need <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span> <span class="pre">bash</span></code> before you can run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">base</span></code>.</p></li>
-</ul>
-</li>
-<li><p>You can add this directly to your vscode using <code class="docutils literal notranslate"><span class="pre">F1-&gt;Select</span> <span class="pre">interpreter-&gt;Find</span></code> if vscode doesn’t recognise itself.</p></li>
-<li><p>Create a new environment named “snakes” that contains Python 3.9, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">snakes</span> <span class="pre">python=3.9</span></code></p></li>
-<li><p>Activate the new environment: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">snakes</span></code></p></li>
-<li><p>Verify that the snakes environment has been added and is active <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--envs</span></code></p></li>
-<li><p>Check is a package is installed <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span> <span class="pre">beautifulsoup4</span></code></p></li>
-<li><p>If not install it <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">beautifulsoup4</span></code></p></li>
-<li><p>Check to see if the newly installed program is in this environment <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code></p></li>
-</ul>
-</section>
-<section id="conda-channels">
-<h2>Conda channels<a class="headerlink" href="#conda-channels" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html">https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://exerror.com/solving-environment-failed-with-initial-frozen-solve-retrying-with-flexible-solve/#:~:text=Second%20solution%20is%20Just%20set,false%20and%20my%20error%20solved.&amp;text=with%20flexible%20solve-,To%20Solve%20Solving%20environment%3A%20failed%20with%20initial%20frozen%20solve.,your%20error%20will%20be%20solved.">solving-environment-failed-with-initial-frozen-solve-retrying-with-flexible-solve</a></p>
-<ul>
-<li><p>conda config -–set channel_priority false</p></li>
-</ul>
-</li>
-<li><p>See current channels <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--show</span> <span class="pre">channels</span></code></p></li>
-<li><p>To make conda install the newest version of a package in any listed channel <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">-–set</span> <span class="pre">channel_priority</span> <span class="pre">false</span></code></p></li>
-<li><p>add a new channel with highest priority <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--add</span> <span class="pre">channels</span> <span class="pre">new_channel</span></code>, lowest priority <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--append</span> <span class="pre">channels</span> <span class="pre">new_channel</span></code>.</p></li>
-<li><ul>
-<li><p>Default channel might not find some packages. Add conda-forge <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--add</span> <span class="pre">channels</span> <span class="pre">conda-forge</span></code></p></li>
-</ul>
-</li>
-<li><p>check channel priorities <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--describe</span> <span class="pre">channel_priority</span></code></p></li>
-</ul>
-</section>
-<section id="virtual-environment">
-<h2>Virtual environment<a class="headerlink" href="#virtual-environment" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="nb">list</span>
-
-<span class="c1"># https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</span>
-<span class="c1"># Create the environment from the environment.yml file</span>
-<span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
-
-<span class="c1"># Export your active environment to a new file</span>
-<span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">&gt;</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
-
-<span class="c1">#remove an environment</span>
-<span class="n">conda</span> <span class="n">remove</span> <span class="o">--</span><span class="n">name</span> <span class="n">myenv</span> <span class="o">--</span><span class="nb">all</span>
-
-<span class="c1"># verify it removed</span>
-<span class="n">conda</span> <span class="n">info</span> <span class="o">--</span><span class="n">envs</span>
-
-<span class="c1"># create requirments.txt, https://stackoverflow.com/questions/50777849/from-conda-create-requirements-txt-for-pip3</span>
-<span class="n">conda</span> <span class="nb">list</span> <span class="o">-</span><span class="n">e</span> <span class="o">&gt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
-<span class="c1"># can be used to create a conda virtual environment with</span>
-<span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">env</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">file</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This tutorial is specifically for <code class="docutils literal notranslate"><span class="pre">Nvidia</span> <span class="pre">GPU</span></code>. Not sure if the codes will run for other GPUs.</p>
+</div>
+<p>Check your gpu version running <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> from shell. Install the compatible version of libraries. Your pytorch supported version and cudatoolkit version need to match. More on how to get the cuda version is <a class="reference external" href="https://stackoverflow.com/questions/9727688/how-to-get-the-cuda-version">here</a>.</p>
+<p>Also reboot the pc after reinstall if needed. For this tutorial, I am using the current latest version.</p>
+<section id="pytorch">
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this heading">#</a></h2>
+<p>Check if torch and cuda is already installed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If False, install using the following (<a class="reference external" href="https://pytorch.org/get-started/previous-versions/#v1131">source</a>),</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># using anaconda</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">1.13.1</span> <span class="n">pytorch</span><span class="o">-</span><span class="n">cuda</span><span class="o">=</span><span class="mf">11.7</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span> <span class="o">-</span><span class="n">c</span> <span class="n">nvidia</span>
+<span class="c1"># if you want to install additional libraries</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">1.13.1</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.14.1</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.13.1</span> <span class="n">pytorch</span><span class="o">-</span><span class="n">cuda</span><span class="o">=</span><span class="mf">11.7</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span> <span class="o">-</span><span class="n">c</span> <span class="n">nvidia</span>
 
 <span class="c1"># or using pip</span>
-<span class="n">pip</span> <span class="n">freeze</span> <span class="o">&gt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
-<span class="c1"># In an activated conda environment I had to use</span>
-<span class="n">pip</span> <span class="nb">list</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">freeze</span> <span class="o">&gt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.13.1</span><span class="o">+</span><span class="n">cu117</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">pytorch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">whl</span><span class="o">/</span><span class="n">cu117</span>
 
-<span class="c1"># Then use the resulting requirements.txt to create a pip virtual environment:</span>
-<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">env</span>
-<span class="n">source</span> <span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="c1"># if you want to install additional libraries</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.13.1</span><span class="o">+</span><span class="n">cu117</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.14.1</span><span class="o">+</span><span class="n">cu117</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.13.1</span> <span class="o">-</span><span class="n">f</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">pytorch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">whl</span><span class="o">/</span><span class="n">torch_stable</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>This will install PyTorch 1.13.1 and cuda 11.7. Recheck if it is properly installed. Related <a class="reference external" href="https://discuss.pytorch.org/t/pytorch-cannot-find-gpu-2021-version/135701/2">issue</a>.
+1.
+2.</p>
+</section>
+<section id="tensorflow">
+<h2>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this heading">#</a></h2>
+<p>Check if it is already installed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If 0, install the library using the following code (<a class="reference external" href="https://www.tensorflow.org/install/pip">source</a>). Do not install TensorFlow with conda. It may not have the latest stable version. pip is recommended since TensorFlow is only officially released to PyPI. Earlier versions used to come with different library for gpu (<code class="docutils literal notranslate"><span class="pre">tensorflow-gpu</span></code>), release updated of those have been discontinued.</p>
+<p>For windows, Tensorflow 2.10.0 is the last version installable by windows native. Later versions have to be installed by wsl. On linus, there is no major change. The following is for windows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tensorflow</span><span class="o">==</span><span class="mf">2.10</span><span class="o">.*</span>
 
-<span class="c1"># update the contents of your environment file</span>
-<span class="n">conda</span> <span class="n">env</span> <span class="n">update</span> <span class="o">--</span><span class="n">prefix</span> <span class="o">./</span><span class="n">env</span> <span class="o">--</span><span class="n">file</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>  <span class="o">--</span><span class="n">prune</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">cudnn</span><span class="o">=</span><span class="mf">8.1.0</span>
+<span class="nb">set</span> <span class="n">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>This installs both cpu and gpu versions. Verify it has been installed. Installing cudnn didn’t work with pip.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import tensorflow as tf; print(tf.config.list_physical_devices(&#39;GPU&#39;))&quot;</span>
+</pre></div>
+</div>
+<p>If this returns an empty list, check the following <a class="reference external" href="https://stackoverflow.com/questions/42326748/tensorflow-on-gpu-no-known-devices-despite-cudas-devicequery-returning-a-pas">issue</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">protobuf</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">force</span><span class="o">-</span><span class="n">reinstall</span> <span class="n">tensorflow</span>
 
+<span class="c1"># on windows set cuda visible if necessary</span>
+<span class="c1"># for multiple GPUS, set multiple numbers</span>
+<span class="nb">set</span> <span class="n">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
 </section>
@@ -492,20 +472,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../notebooks.html"
+       href="github.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Content with notebooks</p>
+        <p class="prev-next-title">Github</p>
       </div>
     </a>
     <a class="right-next"
-       href="github.html"
+       href="jupyterbook.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Github</p>
+        <p class="prev-next-title">Jupyter Book</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -527,10 +507,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-guide">Installation guide</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-channels">Conda channels</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environment">Virtual environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a></li>
 </ul>
   </nav></div>
 
