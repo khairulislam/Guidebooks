@@ -359,7 +359,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-already-installed">Check if already installed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -387,56 +391,66 @@ document.write(`
 <p>Also reboot the pc after reinstall if needed. For this tutorial, I am using the current latest version.</p>
 <section id="pytorch">
 <h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this heading">#</a></h2>
-<p>Check if torch and cuda is already installed.</p>
+<p>Check if torch and cuda is already installed. Using python code,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>If False, install using the following (<a class="reference external" href="https://pytorch.org/get-started/previous-versions/#v1131">source</a>),</p>
+<p>Or from command line,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -c <span class="s2">&quot;import torch;print(torch.cuda.is_available())&quot;</span>
+</pre></div>
+</div>
+<p>If this shows False, install PyTorch with CUDA using the following code collected from <a class="reference external" href="https://pytorch.org/get-started/previous-versions/#v1131">here</a>,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># using anaconda</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">1.13.1</span> <span class="n">pytorch</span><span class="o">-</span><span class="n">cuda</span><span class="o">=</span><span class="mf">11.7</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span> <span class="o">-</span><span class="n">c</span> <span class="n">nvidia</span>
 <span class="c1"># if you want to install additional libraries</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">1.13.1</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.14.1</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.13.1</span> <span class="n">pytorch</span><span class="o">-</span><span class="n">cuda</span><span class="o">=</span><span class="mf">11.7</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span> <span class="o">-</span><span class="n">c</span> <span class="n">nvidia</span>
 
 <span class="c1"># or using pip</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.13.1</span><span class="o">+</span><span class="n">cu117</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">pytorch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">whl</span><span class="o">/</span><span class="n">cu117</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.13.1</span><span class="o">+</span><span class="n">cu117</span> <span class="o">-</span><span class="n">f</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">pytorch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">whl</span><span class="o">/</span><span class="n">torch_stable</span><span class="o">.</span><span class="n">html</span>
 
 <span class="c1"># if you want to install additional libraries</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.13.1</span><span class="o">+</span><span class="n">cu117</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.14.1</span><span class="o">+</span><span class="n">cu117</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.13.1</span> <span class="o">-</span><span class="n">f</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">pytorch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">whl</span><span class="o">/</span><span class="n">torch_stable</span><span class="o">.</span><span class="n">html</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.13.1</span><span class="o">+</span><span class="n">cu117</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.14.1</span><span class="o">+</span><span class="n">cu117</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.13.1</span><span class="o">+</span><span class="n">cu117</span> <span class="o">-</span><span class="n">f</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">pytorch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">whl</span><span class="o">/</span><span class="n">torch_stable</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
 </div>
-<p>This will install PyTorch 1.13.1 and cuda 11.7. Recheck if it is properly installed. Related <a class="reference external" href="https://discuss.pytorch.org/t/pytorch-cannot-find-gpu-2021-version/135701/2">issue</a>.
-1.
-2.</p>
+<p>This will install PyTorch 1.13.1 and cuda 11.7. Recheck if it is properly installed. Related <a class="reference external" href="https://discuss.pytorch.org/t/pytorch-cannot-find-gpu-2021-version/135701/2">issue</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You won’t have to install cudnn separately for torch because that comes within the torch package. -</p>
+</div>
+<p>Source: <a class="reference external" href="https://github.com/pytorch/pytorch/issues/96595">Why doesn’t PyTorch install the REAL nvidia cuDNN pip package?</a></p>
 </section>
 <section id="tensorflow">
 <h2>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this heading">#</a></h2>
-<p>Check if it is already installed.</p>
+<section id="check-if-already-installed">
+<h3>Check if already installed<a class="headerlink" href="#check-if-already-installed" title="Permalink to this heading">#</a></h3>
+<p>Using python,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If 0, install the library using the following code (<a class="reference external" href="https://www.tensorflow.org/install/pip">source</a>). Do not install TensorFlow with conda. It may not have the latest stable version. pip is recommended since TensorFlow is only officially released to PyPI. Earlier versions used to come with different library for gpu (<code class="docutils literal notranslate"><span class="pre">tensorflow-gpu</span></code>), release updated of those have been discontinued.</p>
-<p>For windows, Tensorflow 2.10.0 is the last version installable by windows native. Later versions have to be installed by wsl. On linus, there is no major change. The following is for windows.</p>
+<p>Or using bash script,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -c <span class="s2">&quot;import tensorflow as tf; print(tf.config.list_physical_devices(&#39;GPU&#39;))&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="install">
+<h3>Install<a class="headerlink" href="#install" title="Permalink to this heading">#</a></h3>
+<p>If the previous step returns an empty list, install the library using the following code (<a class="reference external" href="https://www.tensorflow.org/install/pip">source</a>). Do not install <code class="docutils literal notranslate"><span class="pre">TensorFlow</span></code> with conda. It may not have the latest stable version. pip is recommended since <code class="docutils literal notranslate"><span class="pre">TensorFlow</span></code> is only officially released to PyPI. Earlier versions used to come with different library for gpu (<code class="docutils literal notranslate"><span class="pre">tensorflow-gpu</span></code>), release updates of those have been discontinued.</p>
+<p>For windows, <code class="docutils literal notranslate"><span class="pre">Tensorflow</span> <span class="pre">2.10.0</span></code> is the last version installable by <code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">native</span></code>. Later versions have to be installed by <code class="docutils literal notranslate"><span class="pre">wsl</span></code>. On <code class="docutils literal notranslate"><span class="pre">linux</span></code>, there is no major change. The following is for windows.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tensorflow</span><span class="o">==</span><span class="mf">2.10</span><span class="o">.*</span>
 
 <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">cudnn</span><span class="o">=</span><span class="mf">8.1.0</span>
 <span class="nb">set</span> <span class="n">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>This installs both cpu and gpu versions. Verify it has been installed. Installing cudnn didn’t work with pip.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import tensorflow as tf; print(tf.config.list_physical_devices(&#39;GPU&#39;))&quot;</span>
-</pre></div>
-</div>
-<p>If this returns an empty list, check the following <a class="reference external" href="https://stackoverflow.com/questions/42326748/tensorflow-on-gpu-no-known-devices-despite-cudas-devicequery-returning-a-pas">issue</a>.</p>
+<p>This installs both cpu and gpu versions. Verify it has been installed. Installing <code class="docutils literal notranslate"><span class="pre">cudnn</span></code> doesn’t work with pip. It is available on the Anaconda server. It can also be manually installed following the instructions <a class="reference external" href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html">here</a>.</p>
+<p>If this still returns an empty list, check the following <a class="reference external" href="https://stackoverflow.com/questions/42326748/tensorflow-on-gpu-no-known-devices-despite-cudas-devicequery-returning-a-pas">issue</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">protobuf</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">force</span><span class="o">-</span><span class="n">reinstall</span> <span class="n">tensorflow</span>
-
-<span class="c1"># on windows set cuda visible if necessary</span>
-<span class="c1"># for multiple GPUS, set multiple numbers</span>
-<span class="nb">set</span> <span class="n">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">force</span><span class="o">-</span><span class="n">reinstall</span> <span class="n">tensorflow</span><span class="o">==</span><span class="mf">2.10</span><span class="o">.*</span>
 </pre></div>
 </div>
+</section>
 </section>
 </section>
 
@@ -508,7 +522,11 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-already-installed">Check if already installed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

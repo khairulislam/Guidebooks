@@ -66,3 +66,8 @@ pip install -r requirements.txt
 conda env update --prefix ./env --file environment.yml  --prune
 
 ```
+
+```{warning} 
+Becareful of using pip inside a conda environment, since conda will use the default pip of the OS, not the pip of the ven. So conda will be be unaware of what pip will install. 
+```
+Source: [Using Pip in a Conda Environment](https://www.anaconda.com/blog/using-pip-in-a-conda-environment), [Installing requirements.txt in Conda Environments](https://datumorphism.leima.is/til/programming/python/python-anaconda-install-requirements/)

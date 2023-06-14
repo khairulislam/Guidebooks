@@ -15,14 +15,18 @@ Also reboot the pc after reinstall if needed. For this tutorial, I am using the 
 
 ## PyTorch
 
-Check if torch and cuda is already installed.
+Check if torch and cuda is already installed. Using python code,
 
-```{code-block} python
+```python
 import torch
 torch.cuda.is_available()
 ```
+Or from command line,
+```bash
+python -c "import torch;print(torch.cuda.is_available())"
+```
 
-If False, install using the following ([source](https://pytorch.org/get-started/previous-versions/#v1131)),
+If this shows False, install PyTorch with CUDA using the following code collected from [here](https://pytorch.org/get-started/previous-versions/#v1131),
 
 ```
 # using anaconda
@@ -31,28 +35,37 @@ conda install pytorch==1.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
 conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
 
 # or using pip
-pip install torch==1.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117
+pip install torch==1.13.1+cu117 -f https://download.pytorch.org/whl/torch_stable.html
 
 # if you want to install additional libraries
-pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1+cu117 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 This will install PyTorch 1.13.1 and cuda 11.7. Recheck if it is properly installed. Related [issue](https://discuss.pytorch.org/t/pytorch-cannot-find-gpu-2021-version/135701/2).
-1. 
-2. 
+
+```{note}
+You won't have to install cudnn separately for torch because that comes within the torch package. - 
+```
+Source: [Why doesn't PyTorch install the REAL nvidia cuDNN pip package?](https://github.com/pytorch/pytorch/issues/96595)
 
 ## TensorFlow
 
-Check if it is already installed.
+### Check if already installed
+Using python,
 
 ```{code-block} python
 import tensorflow as tf
 tf.config.list_physical_devices('GPU')
 ```
+Or using bash script,
+```bash
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+```
 
-If 0, install the library using the following code ([source](https://www.tensorflow.org/install/pip)). Do not install TensorFlow with conda. It may not have the latest stable version. pip is recommended since TensorFlow is only officially released to PyPI. Earlier versions used to come with different library for gpu (`tensorflow-gpu`), release updated of those have been discontinued.
+### Install
+If the previous step returns an empty list, install the library using the following code ([source](https://www.tensorflow.org/install/pip)). Do not install `TensorFlow` with conda. It may not have the latest stable version. pip is recommended since `TensorFlow` is only officially released to PyPI. Earlier versions used to come with different library for gpu (`tensorflow-gpu`), release updates of those have been discontinued.
 
-For windows, Tensorflow 2.10.0 is the last version installable by windows native. Later versions have to be installed by wsl. On linus, there is no major change. The following is for windows.
+For windows, `Tensorflow 2.10.0` is the last version installable by `windows native`. Later versions have to be installed by `wsl`. On `linux`, there is no major change. The following is for windows.
 
 ```
 pip install tensorflow==2.10.*
@@ -61,19 +74,12 @@ conda install -c conda-forge cudnn=8.1.0
 set CUDA_VISIBLE_DEVICES=1
 ```
 
-This installs both cpu and gpu versions. Verify it has been installed. Installing cudnn didn't work with pip.
+This installs both cpu and gpu versions. Verify it has been installed. Installing `cudnn` doesn't work with pip. It is available on the Anaconda server. It can also be manually installed following the instructions [here](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html).
 
-```
-python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-```
 
-If this returns an empty list, check the following [issue](https://stackoverflow.com/questions/42326748/tensorflow-on-gpu-no-known-devices-despite-cudas-devicequery-returning-a-pas).
+If this still returns an empty list, check the following [issue](https://stackoverflow.com/questions/42326748/tensorflow-on-gpu-no-known-devices-despite-cudas-devicequery-returning-a-pas).
 
 ```
 pip uninstall protobuf
-pip install --upgrade --force-reinstall tensorflow
-
-# on windows set cuda visible if necessary
-# for multiple GPUS, set multiple numbers
-set CUDA_VISIBLE_DEVICES=1
+pip install --upgrade --force-reinstall tensorflow==2.10.*
 ```
