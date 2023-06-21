@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Jupyter Book &#8212; My guide book</title>
+    <title>Tools that will help document your project &#8212; My guide book</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/jupyterbook';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/project_documentation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tools that will help document your project" href="project_documentation.html" />
-    <link rel="prev" title="GPU Setup" href="gpu_setup.html" />
+    <link rel="next" title="Public private key" href="setting_keys.html" />
+    <link rel="prev" title="Jupyter Book" href="jupyterbook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -162,8 +162,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="anaconda.html">Anaconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpu_setup.html">GPU Setup</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jupyter Book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project_documentation.html">Tools that will help document your project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyterbook.html">Jupyter Book</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools that will help document your project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setting_keys.html">Public private key</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slurm.html">SLURM</a></li>
 </ul>
@@ -237,7 +237,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/khairulislam/Guidebooks/issues/new?title=Issue%20on%20page%20%2Fpages/jupyterbook.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/khairulislam/Guidebooks/issues/new?title=Issue%20on%20page%20%2Fpages/project_documentation.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -267,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/pages/jupyterbook.md" target="_blank"
+      <li><a href="../_sources/pages/project_documentation.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -349,7 +349,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Jupyter Book</h1>
+    <h1>Tools that will help document your project</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -359,13 +359,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-template-book">Creating a template book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-your-book">Build your book</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview">Preview</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-new-content">Add new content</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-book-online-using-github-pages">Publish book online using GitHub Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdoc3-the-semi-automatic-solution">pdoc3 - the semi-automatic solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mkdocs-the-manual-solution">MkDocs — the manual solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-docs">Read the Docs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-here">First time here?</a></li>
 </ul>
             </nav>
         </div>
@@ -377,71 +374,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-book">
-<h1><a class="reference external" href="https://jupyterbook.org/en/stable/start/overview.html">Jupyter Book</a><a class="headerlink" href="#jupyter-book" title="Permalink to this heading">#</a></h1>
-<p>Install <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> using the following instructions. In general the instructions are for <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -U jupyter-book
-</pre></div>
-</div>
-<p>for via <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge jupyter-book
-</pre></div>
-</div>
-<p>Temporariliy for <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">0.15.1</span></code>, <code class="docutils literal notranslate"><span class="pre">docutils==0.17.1</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx==5</span></code> is needed because of <code class="docutils literal notranslate"><span class="pre">docutils</span></code>
-<a class="reference external" href="https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/322">issue</a> with bibliography.
-The <a class="reference download internal" download="" href="../_downloads/b4ef698db8ca845e5845c4618278f29a/requirements.txt"><span class="xref download myst">requirements.txt</span></a> file has been updated with the working versions.</p>
-<section id="creating-a-template-book">
-<h2><a class="reference external" href="https://jupyterbook.org/en/stable/start/create.html">Creating a template book</a><a class="headerlink" href="#creating-a-template-book" title="Permalink to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-book create book/
-</pre></div>
-</div>
-<p>It’ll create a template book with the following structure:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tree mybookname
-mybookname/
-├── _config.yml
-├── _toc.yml
-├── intro.md
-├── logo.png
-├── markdown-notebooks.md
-├── markdown.md
-├── notebooks.ipynb
-├── references.bib
-└── requirements.txt
-</pre></div>
-</div>
-<p>Make sure to update the configuration (<code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>) and table of contents (<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>) files.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tools-that-will-help-document-your-project">
+<h1>Tools that will help document your project<a class="headerlink" href="#tools-that-will-help-document-your-project" title="Permalink to this heading">#</a></h1>
+<p>Creating an up-to-date, meaningful, easily usable documentation is not trivial. This article shortly reviews tools that could help automate the process. I focus only on Python tools that can be used for internal documentation. For more details check the <a class="reference download internal" download="" href="../_downloads/5388a8b8be0157af339607291f211f01/Python%20auto-generated%20documentation%20%E2%80%94%203%20tools.pdf"><span class="xref download myst">pdf file</span></a> or the <a class="reference external" href="https://medium.com/blueriders/python-autogenerated-documentation-3-tools-that-will-help-document-your-project-c6d7623814ef">original post</a>.</p>
+<section id="pdoc3-the-semi-automatic-solution">
+<h2><a class="reference external" href="https://pdoc3.github.io/pdoc/doc/pdoc/#pdoc&amp;gsc.tab=0">pdoc3</a> - the semi-automatic solution<a class="headerlink" href="#pdoc3-the-semi-automatic-solution" title="Permalink to this heading">#</a></h2>
+<p>Python package pdoc provides types, functions, and a command-line interface for accessing public documentation of Python modules, and for presenting it in a user-friendly, industry-standard open format. It is best suited for small- to medium-sized projects with tidy, hierarchical APIs.</p>
+<p>pdoc extracts documentation of:</p>
+<ul class="simple">
+<li><p>modules (including submodules),</p></li>
+<li><p>functions (including methods, properties, coroutines …),</p></li>
+<li><p>classes, and</p></li>
+<li><p>variables (including globals, class variables, and instance variables).</p></li>
+</ul>
+<p>Documentation is extracted from live objects’ docstrings using Python’s <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> attribute. Documentation for variables is found by examining objects’ abstract syntax trees.</p>
 </section>
-<section id="build-your-book">
-<h2><a class="reference external" href="https://jupyterbook.org/en/stable/start/build.html">Build your book</a><a class="headerlink" href="#build-your-book" title="Permalink to this heading">#</a></h2>
-<p>Inside the <code class="docutils literal notranslate"><span class="pre">book</span></code> folder run the following command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-book build .
-
-<span class="c1"># alternatively use the short form </span>
-jb build .
-</pre></div>
-</div>
-<p>By default, Jupyter Book will only build the HTML for pages that have been updated since the last time you built the book. If you’d like to force Jupyter Book to re-build a particular page, you can either edit the corresponding file in your book’s folder, or delete that page’s HTML in the <code class="docutils literal notranslate"><span class="pre">_build/html</span></code> folder. Or rebuild using the <code class="docutils literal notranslate"><span class="pre">--all</span></code> option.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-book build --all .
-</pre></div>
-</div>
-<p>If it still doesn’t update your contents, delete the <code class="docutils literal notranslate"><span class="pre">build/html</span></code> folder. Then build the book.</p>
-<section id="preview">
-<h3>Preview<a class="headerlink" href="#preview" title="Permalink to this heading">#</a></h3>
-<p>To preview your book, you can open the generated HTML files in your browser. Either double-click the html file in your local folder, or enter the absolute path to the file in your browser navigation bar adding file:// at the beginning (e.g. <code class="docutils literal notranslate"><span class="pre">file://Users/my_path_to_book/_build/index.html</span></code>).</p>
+<section id="mkdocs-the-manual-solution">
+<h2><a class="reference external" href="https://www.mkdocs.org/">MkDocs</a> — the manual solution<a class="headerlink" href="#mkdocs-the-manual-solution" title="Permalink to this heading">#</a></h2>
+<p>Project documentation with Markdown. MkDocs is a fast, simple and downright gorgeous static site generator that’s geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file. Start by reading the <a class="reference external" href="https://www.mkdocs.org/getting-started/">introductory tutorial</a>, then check the <a class="reference external" href="https://www.mkdocs.org/user-guide/">User Guide</a> for more information.</p>
 </section>
+<section id="read-the-docs">
+<h2><a class="reference external" href="https://docs.readthedocs.io/en/stable/index.html">Read the Docs</a><a class="headerlink" href="#read-the-docs" title="Permalink to this heading">#</a></h2>
+<p>Read the Docs simplifies software documentation by building, versioning, and hosting of your docs, automatically. Treating documentation like code keeps your team in the same tools, and your documentation up to date.</p>
+<p>🔄 <strong>Up to date documentation</strong></p>
+<p>Whenever you push code to Git, Read the Docs will automatically build your docs so your code and documentation are always up-to-date. Get started with our tutorial.</p>
+<p>🗂️ <strong>Documentation for every version</strong></p>
+<p>Read the Docs can host multiple versions of your docs. Keep your 1.0 and 2.0 documentation online, pulled directly from Git. Start hosting all your versions.</p>
 </section>
-<section id="add-new-content">
-<h2><a class="reference external" href="https://jupyterbook.org/en/stable/start/new-file.html">Add new content</a><a class="headerlink" href="#add-new-content" title="Permalink to this heading">#</a></h2>
-<p>Add new pages in the <a class="reference download internal" download="" href="../_downloads/056806de8da745a0c59599887088495d/_toc.yml"><span class="xref download myst">_toc.yml</span></a> file. The paths are relative to the base folder of the book.</p>
-</section>
-<section id="publish-book-online-using-github-pages">
-<h2><a class="reference external" href="https://jupyterbook.org/en/stable/start/publish.html">Publish book online using GitHub Pages</a><a class="headerlink" href="#publish-book-online-using-github-pages" title="Permalink to this heading">#</a></h2>
-<p>Install <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code> and from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the repository which contains the built book (<code class="docutils literal notranslate"><span class="pre">_build/html</span></code> folder) call <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install ghp-import
-ghp-import -n -p -f _build/html
-</pre></div>
-</div>
-<p>This works by copying all of the contents of your built book (i.e., the <code class="docutils literal notranslate"><span class="pre">_build/html</span></code> folder) to a branch of your repository called <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>, and pushes it to GitHub. The <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch will be created and populated automatically for you by <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code>.</p>
+<section id="first-time-here">
+<h2>First time here?<a class="headerlink" href="#first-time-here" title="Permalink to this heading">#</a></h2>
+<p>We have a few places for you to get started:</p>
+<p>🚀 <a class="reference external" href="https://docs.readthedocs.io/en/stable/tutorial/index.html">Read the Docs tutorial</a></p>
+<p>Take the first practical steps with Read the Docs.</p>
+<p>🚀 <a class="reference external" href="https://docs.readthedocs.io/en/stable/examples.html">Example projects</a></p>
+<p>Start your journey with an example project to hit the ground running.</p>
+<p>🚀 <a class="reference external" href="https://docs.readthedocs.io/en/stable/tutorials/index.html">All tutorials</a></p>
+<p>Using documentation tools like Sphinx or MkDocs for the first time or importing an existing project? We have the tutorials to get you started!</p>
 </section>
 </section>
 
@@ -477,20 +445,20 @@ ghp-import -n -p -f _build/html
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="gpu_setup.html"
+       href="jupyterbook.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">GPU Setup</p>
+        <p class="prev-next-title">Jupyter Book</p>
       </div>
     </a>
     <a class="right-next"
-       href="project_documentation.html"
+       href="setting_keys.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tools that will help document your project</p>
+        <p class="prev-next-title">Public private key</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -512,13 +480,10 @@ ghp-import -n -p -f _build/html
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-template-book">Creating a template book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-your-book">Build your book</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview">Preview</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-new-content">Add new content</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-book-online-using-github-pages">Publish book online using GitHub Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdoc3-the-semi-automatic-solution">pdoc3 - the semi-automatic solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mkdocs-the-manual-solution">MkDocs — the manual solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-docs">Read the Docs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-here">First time here?</a></li>
 </ul>
   </nav></div>
 
