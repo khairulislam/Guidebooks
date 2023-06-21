@@ -11,5 +11,6 @@ chapters:
 - file: pages/github
 - file: pages/gpu_setup
 - file: pages/jupyterbook
+- file: pages/project_documentation
 - file: pages/setting_keys
 - file: pages/slurm
